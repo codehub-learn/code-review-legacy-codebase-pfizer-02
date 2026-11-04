@@ -1,0 +1,4 @@
+# Released as .gitattributes of the course repo (stage 0). Scripts and manifests must stay LF on every OS.
+* text=auto eol=lf
+*.ps1 text eol=lf
+*.sh text eol=lf

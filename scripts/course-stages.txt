@@ -1,0 +1,64 @@
+# What each course stage releases. One entry per line: stage|source|destination|optional
+#   source       path in the build repo
+#   destination  path in the course folder (default: same as source)
+#   optional     file may be missing (skipped, no error)
+#   generated    not copied: release-course renders the source for the chosen agent (scripts/render-lab-guide.mjs)
+# A stage is cumulative with the ones before it: release stage 0, then 1, and so on. Files are only added or overwritten.
+# Never released (stay in the build repo): COURSE-GUIDE.md, docs/, .claude/tasks/, the build-only skills
+# (lab-build-protocol, runbook-writer, skill-authoring), scripts/release-course.*, scripts/setup-lab.*, scripts/export-copilot.*,
+# scripts/ground-truth*.mjs and the instructor-only scripts/lib files.
+# Generated at release time, not listed here: CLAUDE.md (Claude Code), .github/ (Copilot CLI), .lab-agent, reports/.gitkeep.
+# LAB-GUIDE.md is generated per agent from LAB-GUIDE.template.md (the `generated` entry below).
+
+# Stage 0: before section 1. Setup, the read-only guard, the always-on rules, the scripts.
+0|AGENTS.md
+0|.env.example
+0|scripts/course.gitignore|.gitignore
+0|scripts/course.gitattributes|.gitattributes
+0|LAB-GUIDE.template.md|LAB-GUIDE.md|generated
+0|.claude/lab-settings.json|.claude/settings.json
+0|.claude/hooks/read-only-guard.mjs
+0|.claude/rules
+0|scripts/lab.pins
+0|scripts/course-stages.txt
+0|scripts/lib/check.sh
+0|scripts/lib/check.ps1
+0|scripts/setup-shopizer.sh
+0|scripts/setup-shopizer.ps1
+0|scripts/build-shopizer.sh
+0|scripts/build-shopizer.ps1
+0|scripts/verify-lab.sh
+0|scripts/verify-lab.ps1
+0|scripts/reset-lab.sh
+0|scripts/reset-lab.ps1
+
+# Stage 1: start of section 1, Getting Oriented.
+1|.claude/skills/map-codebase
+1|.claude/skills/build-glossary
+1|.claude/skills/locate-feature
+1|.claude/agents/code-explorer.md
+1|.claude/commands/map.md
+1|prompts/section-1
+
+# Stage 2: start of section 2, Tracing Dependencies and Change Impact.
+2|.claude/skills/trace-path
+2|.claude/skills/find-usages
+2|.claude/skills/impact-report
+2|.claude/commands/trace.md
+2|.claude/commands/impact.md
+2|prompts/section-2
+
+# Stage 3: start of section 3, Reading a Change. Also the script that makes the four review branches.
+3|.claude/skills/review-change
+3|.claude/skills/draft-review-comments
+3|.claude/commands/review.md
+3|scripts/make-review-branches.sh
+3|scripts/make-review-branches.ps1
+3|prompts/section-3
+
+# Stage 4: start of section 4, From Draft to Human Review.
+4|.claude/skills/verify-claims
+4|.claude/skills/triage-confidence
+4|.claude/agents/review-verifier.md
+4|.claude/commands/verify-review.md
+4|prompts/section-4

@@ -1,0 +1,7 @@
+# Released as .gitignore of the course repo (stage 0). Nothing here is secret; these are local or generated.
+/shopizer/
+.env
+/reports/*
+!/reports/.gitkeep
+.claude/settings.local.json
+/.claude/hooks/logs/

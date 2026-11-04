@@ -1,0 +1,4 @@
+# Pinned inputs of the lab. KEY=VALUE, read by the .sh and .ps1 scripts. Change a pin here only.
+SHOPIZER_REPO=https://github.com/shopizer-ecommerce/shopizer.git
+SHOPIZER_TAG=3.2.5
+SHOPIZER_SHA=052d2ed3c026525329405cef433c0aca7dd2cee3
